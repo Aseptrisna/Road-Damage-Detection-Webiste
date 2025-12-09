@@ -1,4 +1,4 @@
-const API_URL = 'https://road-damage.lskk.co.id/api';
+const API_URL = 'https://road-damage.lskk.co.id/apis';
 
 // --- INISIALISASI PETA ---
 const map = L.map('map').setView([-6.9294068, 107.6268073], 13);
