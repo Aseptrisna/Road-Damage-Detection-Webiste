@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Road Inspector</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-robot"></i> Road<span>Sense</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-map-marked-alt"></i> Peta Live</a></li>
+                <li><a href="#"><i class="fas fa-database"></i> Database</a></li>
+            </ul>
+            <div class="server-status">
+                <span class="pulse-dot"></span> System Online
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div>
+                    <h2>Monitoring</h2>
+                    <!-- <p style="font-size:0.85rem; color:#64748b;">Pantauan kondisi jalan & sensor realtime</p> -->
+                </div>
+                <div class="user-profile">
+                    <span>Asep Trisna Setiawan</span>
+                    <div class="avatar"><i class="fas fa-user-astronaut"></i></div>
+                </div>
+            </header>
+
+            <section class="map-card">
+                <div id="map"></div>
+                <div class="map-overlay">
+                    <i class="fas fa-satellite-dish"></i> GPS Tracking Active
+                </div>
+            </section>
+
+            <div class="content-grid">
+                
+                <section class="panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-camera"></i> Deteksi Visual (YOLOv8)</h3>
+                        <span class="badge-count" id="issue-count">0</span>
+                    </div>
+                    <div id="road-issues-list" class="feed-container">
+                        <div class="loading-state">
+                            <i class="fas fa-circle-notch fa-spin"></i> Menghubungkan ke Database...
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-wave-square"></i> Sensor Akselerometer</h3>
+                        <span class="live-tag">LIVE</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Waktu</th>
+                                    <th>X</th>
+                                    <th>Y</th>
+                                    <th>Z</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sensor-table-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
